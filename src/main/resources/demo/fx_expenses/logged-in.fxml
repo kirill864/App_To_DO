@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="716.0" prefWidth="1228.0" style="-fx-background-color: #16161a;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demo.fx_expenses.LoggedInController">
+   <children>
+      <ImageView fitHeight="44.0" fitWidth="71.0" layoutX="992.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../file.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="1050.0" layoutY="656.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../pencil.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="50.0" layoutX="1099.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../plus%20(1).png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-6.0" prefHeight="716.0" prefWidth="237.0" style="-fx-background-color: #303337; -fx-border-width: 0px 1px 0px 0px;">
+         <children>
+            <Button alignment="TOP_CENTER" layoutX="34.0" layoutY="119.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px; -fx-border-color: #fffffe;" text="Мои Задачи" textAlignment="JUSTIFY" textFill="#fffffe">
+               <font>
+                  <Font name="Segoe UI Semibold" size="18.0" />
+               </font>
+            </Button>
+            <AnchorPane prefHeight="67.0" prefWidth="236.0" style="-fx-background-color: #242629;">
+               <children>
+                  <Label layoutX="52.0" layoutY="10.0" prefHeight="36.0" prefWidth="128.0" text="TO DO" textFill="#fffffe">
+                     <font>
+                        <Font name="Bauhaus 93" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="34.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="50.0" layoutX="14.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../icons8-circled-user-male-skin-type-5-80.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="label_welcome" alignment="TOP_CENTER" layoutX="68.0" layoutY="633.0" prefHeight="31.0" prefWidth="163.0" text="Admin" textFill="#fffffe">
+               <font>
+                  <Font name="Segoe UI Semibold" size="21.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="230.0" prefHeight="67.0" prefWidth="998.0" style="-fx-background-color: #303337; -fx-border-width: 0px 0px 1px 0px;">
+         <children>
+            <ImageView fitHeight="36.0" fitWidth="32.0" layoutX="948.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../icons8-logout-50%20(1).png" />
+               </image>
+            </ImageView>
+            <Button fx:id="button_logout" layoutX="944.0" layoutY="12.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="40.0" style="-fx-background-color: transparent;" textFill="#fffffe">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="286.0" layoutY="100.0" text="Активные задачи" textFill="#fffffe">
+         <font>
+            <Font name="Segoe UI Semibold" size="30.0" />
+         </font>
+      </Label>
+      <MenuButton layoutX="1014.0" layoutY="103.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="137.0" style="-fx-background-color: transparent;" text="Фильтр" textFill="#fffffe">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+         <font>
+            <Font name="Segoe UI Semibold" size="21.0" />
+         </font>
+      </MenuButton>
+      <Button layoutX="1102.0" layoutY="654.0" mnemonicParsing="false" onMouseClicked="#addNewTask" prefHeight="45.0" prefWidth="44.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="1049.0" layoutY="652.0" mnemonicParsing="false" onMouseClicked="#editTask" prefHeight="40.0" prefWidth="43.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="993.0" layoutY="655.0" mnemonicParsing="false" onMouseClicked="#deleteTask" prefHeight="40.0" prefWidth="43.0" style="-fx-background-color: transparent;" />
+      <TableView fx:id="taskTable" layoutX="286.0" layoutY="153.0" prefHeight="478.0" prefWidth="860.0" stylesheets="@../../styles.css">
+        <columns>
+          <TableColumn fx:id="descriptionCol" prefWidth="345.0" text="Описание" />
+            <TableColumn fx:id="dateCol" prefWidth="189.0" text="Дата" />
+            <TableColumn fx:id="importanceCol" prefWidth="224.0" text="Важность" />
+        </columns>
+         <styleClass>
+            <String fx:value="table-header" />
+            <String fx:value="table-row" />
+            <String fx:value="responsive-table" />
+            <String fx:value="container" />
+            <String fx:value="col-4" />
+            <String fx:value="col-3" />
+            <String fx:value="col-2" />
+            <String fx:value="col-1" />
+            <String fx:value="col" />
+         </styleClass>
+      </TableView>
+      <Button fx:id="button_refreshTabl" layoutX="544.0" layoutY="103.0" mnemonicParsing="false" onMouseClicked="#refreshTable" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
+      <ImageView fitHeight="40.0" fitWidth="58.0" layoutX="544.0" layoutY="102.0" onMouseClicked="#refreshTable" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../icons8-refresh-64.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
