@@ -10,35 +10,25 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class App extends Application {
-    public static String loggedInUsername;
+    public static String loggedInUsername; // Переменная для хранения имени вошедшего пользователя
     private Stage stage;
-    private Connection conn;
 
     @Override
     public void start(Stage stage) {
         this.stage = stage;
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("samp.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 822.0, 479.0);
-            stage.setTitle("Log in!");
-            stage.setScene(scene);
-            stage.show();
-
-
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("samp.fxml")); // Загружаем FXML файл
+            Scene scene = new Scene(fxmlLoader.load(), 822.0, 479.0); // Создаем сцену с размерами
+            stage.setTitle("Log in!"); // Устанавливаем заголовок окна
+            stage.setScene(scene); // Устанавливаем сцену на Stage
+            stage.show(); // Показываем окно
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Печатаем стек ошибки в случае исключения
         }
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch(args); // Запуск
     }
 
-    public void setConnection(Connection conn) {
-        this.conn = conn;
-    }
-
-    public Stage getStage() {
-        return stage;
-    }
 }
